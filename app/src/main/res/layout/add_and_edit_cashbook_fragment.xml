@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:clickable="true"
+    >
+    <data>
+        <variable
+            name="cashbook"
+            type="com.example.cashbook.cashbook.model.CashBook" />
+        <variable
+            name="account"
+            type="com.example.cashbook.account.model.Account" />
+        <variable
+            name="inventory"
+            type="com.example.cashbook.inventory.Inventory" />
+        <variable
+            name="accountsSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+        <variable
+            name="itemsSpinnerAdapter"
+            type="android.widget.ArrayAdapter" />
+        <variable
+            name="clickHandlers"
+            type="com.example.cashbook.cashbook.addandeditcashbook.AddAndEditCashbookFragment.AddAndEditCashbookFragmentClickHandlers" />
+    </data>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey"
+    android:orientation="vertical"
+    >
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinner"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        app:adapter="@{accountsSpinnerAdapter}"
+        android:onItemSelected="@{clickHandlers::onAccountItemClicked}"
+        />
+    <androidx.appcompat.widget.AppCompatSpinner
+        android:id="@+id/spinnerItems"
+        android:layout_width="395dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:textSize="20sp"
+        app:adapter="@{itemsSpinnerAdapter}"
+        android:onItemSelected="@{clickHandlers::onItemClick}"
+        />
+<EditText
+    android:id="@+id/editTextQuantity"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@={inventory.purchaseQuantity}"
+    android:background="@drawable/square_edittext"
+    android:layout_margin="6dip"
+    android:hint="@string/title_quantity"
+    />
+<EditText
+    android:id="@+id/editTextMemo"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@={cashbook.memo}"
+    android:background="@drawable/square_edittext"
+    android:layout_margin="6dip"
+    android:hint="@string/title_memo"
+    />
+<EditText
+        android:id="@+id/editTextDebit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={cashbook.debitAmount}"
+        android:background="@drawable/square_edittext"
+        android:layout_margin="6dip"
+        android:hint="@string/title_debit"
+        />
+<EditText
+        android:id="@+id/editTextCredit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@={cashbook.creditAmount}"
+        android:background="@drawable/square_edittext"
+        android:layout_margin="6dip"
+        android:hint="@string/title_credit"
+        />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_save"
+        android:onClick="@{clickHandlers::onSubmitButtonClicked}"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:hint="@string/title_name"
+        />
+
+</LinearLayout>
+</layout>

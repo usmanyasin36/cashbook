@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:clickable="true"
+    >
+    <data>
+        <variable
+            name="account"
+            type="com.example.cashbook.account.model.Account" />
+        <variable
+            name="clickHandlers"
+            type="com.example.cashbook.account.addandeditaccount.AddAndEditAccountFragment.AddAndEditAccountFragmentClickHandlers" />
+    </data>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGrey"
+    >
+
+<EditText
+    android:id="@+id/editTextName"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:text="@={account.name}"
+    android:background="@drawable/square_edittext"
+    android:layout_margin="6dip"
+    />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_save"
+        android:onClick="@{clickHandlers::onSubmitButtonClicked}"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="@color/colorAccent"
+        android:hint="@string/title_name"
+        />
+
+</RelativeLayout>
+</layout>
