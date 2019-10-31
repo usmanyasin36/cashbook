@@ -59,7 +59,7 @@
     android:id="@+id/editTextQuantity"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:text="@={inventory.purchaseQuantity}"
+    android:text=""
     android:background="@drawable/square_edittext"
     android:layout_margin="6dip"
     android:hint="@string/title_quantity"
